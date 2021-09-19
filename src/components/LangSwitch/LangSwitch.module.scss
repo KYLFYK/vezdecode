@@ -1,0 +1,80 @@
+.wrapper {
+  display: block;
+  position: absolute;
+  top: 60px;
+  right: 60px;
+
+  @media (max-width: 643px) {
+    top: 20px;
+    right: 15px;
+  }
+}
+
+.altDir {
+  right: unset;
+  left: 60px;
+
+  @media (max-width: 643px) {
+    left: 15px;
+  }
+}
+
+.current {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border: 1px solid rgba(24, 144, 255, 0.3);
+  padding: 6px 18px;
+  border-radius: 2px;
+  transition: border-color .3s ease;
+
+  &:hover {
+    border-color: rgba(24, 144, 255, 1);
+  }
+}
+
+.text {
+  font-weight: 600;
+}
+
+.arrow {
+  font-size: 14px;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &Select {
+    border-radius: 2px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    line-height: 100%;
+    gap: 8px;
+    padding: 0 8px;
+    cursor: pointer;
+
+    &Alt {
+      text-align: right;
+
+      .itemText {
+        width: 100%;
+      }
+    }
+
+    .itemText {
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .3s ease;
+    }
+
+    &:hover {
+      .itemText {
+        color: #1890ff;
+      }
+    }
+  }
+}

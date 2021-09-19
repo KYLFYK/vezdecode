@@ -1,58 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { FC, Suspense, useEffect } from 'react'
+import { MainForm } from './components/MainForm'
+import { LangSwitch } from './components/LangSwitch'
+import ru from 'antd/lib/locale/ru_RU'
+import en from 'antd/lib/locale/en_US'
+import ar from 'antd/lib/locale/ar_EG'
+import { useAppSelector } from './store/store'
+import { LangType } from './store/locale/reducers/localeSlice'
+import { ConfigProvider } from 'antd'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+import './App.scss'
+import 'antd/dist/antd.css'
+import i18n from 'i18next'
+
+const switchAntLocale = (locale: LangType) => {
+  let antLocale = ru
+
+  switch (locale) {
+    case 'ru':
+      antLocale = ru
+      break
+    case 'en':
+      antLocale = en
+      break
+    case 'ar':
+      antLocale = ar
+  }
+
+  return antLocale
 }
 
-export default App;
+export const App: FC = () => {
+  const locale = useAppSelector(
+    (state) => state.rootReducer.localeReducers.lang.currentLang
+  )
+
+  useEffect(() => {
+    i18n.changeLanguage(locale).then(() => {})
+  })
+
+  return (
+    <ConfigProvider
+      direction={locale === 'ar' ? 'rtl' : 'ltr'}
+      locale={switchAntLocale(locale)}
+    >
+      <Suspense fallback={null}>
+        <div className="App" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+          <LangSwitch />
+          <MainForm />
+        </div>
+      </Suspense>
+    </ConfigProvider>
+  )
+}

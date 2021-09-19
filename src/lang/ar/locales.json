@@ -1,0 +1,22 @@
+{
+  "title": "لقب",
+  "firstName": "اسم",
+  "lastName": "اسم العائلة",
+  "company": "شركة",
+  "city": "مدينة",
+  "message": "رسالة",
+  "messagePlaceholder": "رسالتك",
+  "send": "يرسل",
+  "validate": {
+    "firstName": "أدخل أسمك",
+    "lastName": "الرجاء إدخال اسمك الأخير",
+    "email": "أدخل البريد",
+    "emailUnvalid": "البريد الإلكتروني غير صالح",
+    "city": "أدخل اسم المدينة",
+    "message": "أدخل رسالتك",
+    "minLength": "5 أحرف على الأقل"
+  },
+  "loading": "إرسال",
+  "success": "تم إرسال النموذج",
+  "error": "حدث خطأ"
+}

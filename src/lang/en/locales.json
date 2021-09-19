@@ -1,0 +1,22 @@
+{
+  "title": "Title",
+  "firstName": "First name",
+  "lastName": "Last name",
+  "company": "Company",
+  "city": "City",
+  "message": "Message",
+  "messagePlaceholder": "Your message",
+  "send": "Send",
+  "validate": {
+    "firstName": "Enter your first name",
+    "lastName": "Please enter your last name",
+    "email": "Enter your email",
+    "emailUnvalid": "Email is invalid",
+    "city": "Enter the name of the city",
+    "message": "Enter your message",
+    "minLength": "Minimum 5 characters"
+  },
+  "loading": "Dispatching",
+  "success": "Form sent",
+  "error": "An error has occurred"
+}
